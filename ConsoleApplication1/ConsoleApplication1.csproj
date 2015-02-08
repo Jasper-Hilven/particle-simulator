@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C0ED940-B246-423E-98F2-FB06F94AF824}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ParticleSimulation</RootNamespace>
+    <AssemblyName>ParticleSimulation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV, Version=2.9.0.1922, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windows-universal-cuda 2.9.0.1922\bin\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=2.9.0.1922, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windows-universal-cuda 2.9.0.1922\bin\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util, Version=2.9.0.1922, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windows-universal-cuda 2.9.0.1922\bin\Emgu.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp3D.Math">
+      <HintPath>..\..\..\..\..\..\..\Data\TW\bin\Binaries\Sharp3D.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\..\..\..\..\..\..\Data\TW\bin\Binaries\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CostCalculation\CostReviewStorage\CostStorage.cs" />
+    <Compile Include="CostCalculation\CostReviewStorage\IReviewCostStorage.cs" />
+    <Compile Include="CostCalculation\CostReviewStorage\TotalCostStorage.cs" />
+    <Compile Include="CostCalculation\CostReview\AccumCostReviewer.cs" />
+    <Compile Include="CostCalculation\CostReview\AllCostCostReviewer.cs" />
+    <Compile Include="CostCalculation\CostReview\ICostReviewer.cs" />
+    <Compile Include="CostCalculation\CostReview\MaxStepCostCalculator.cs" />
+    <Compile Include="CostCalculation\CostReview\SingleCoreCostReviewer.cs" />
+    <Compile Include="CostCalculation\CostReview\StepCostCalculator.cs" />
+    <Compile Include="CostCalculation\CostStorage\CombinedStorage.cs" />
+    <Compile Include="CostCalculation\CostStorage\ICostStorage.cs" />
+    <Compile Include="CostCalculation\CostStorage\MaxCostStorage.cs" />
+    <Compile Include="CostCalculation\CostStorage\SmallCostStorage.cs" />
+    <Compile Include="CostCalculation\ICostType.cs" />
+    <Compile Include="FieldCalculation\Cost\CohesionComCalcFactory.cs" />
+    <Compile Include="FieldCalculation\Cost\CohesionComCalculator.cs" />
+    <Compile Include="FieldCalculation\Cost\ConstSolveCostCalculator.cs" />
+    <Compile Include="FieldCalculation\Cost\IComCostCalculatorFactory.cs" />
+    <Compile Include="FieldCalculation\Cost\SimpleComCalculator.cs" />
+    <Compile Include="FieldCalculation\Cost\IFieldComCostCalculator.cs" />
+    <Compile Include="FieldCalculation\Cost\SimpleComCostFactory.cs" />
+    <Compile Include="FieldCalculation\Cost\Types\ConstantSolvingCost.cs" />
+    <Compile Include="FieldCalculation\Cost\Types\ParticleWPCCoresSectionCoreRole.cs" />
+    <Compile Include="FieldCalculation\Cost\Types\ParticleWPCCoresHomeCoreRole.cs" />
+    <Compile Include="FieldCalculation\Cost\Types\ParticleWrongPlaceCommunication.cs" />
+    <Compile Include="FieldCalculation\FieldCalculator.cs" />
+    <Compile Include="Initialization\InitializationParameters.cs" />
+    <Compile Include="Initialization\CoreSectionBuilder.cs" />
+    <Compile Include="Initialization\ISectionFactory.cs" />
+    <Compile Include="Initialization\ParticleGeneration\BallParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\CenterParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\IParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\LocalParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\RandomParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\RightDownCornerParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\SingleCoreCenterParticleGenerator.cs" />
+    <Compile Include="Initialization\ParticleGeneration\SinusoidGridMover.cs" />
+    <Compile Include="Initialization\SimulationInitializer.cs" />
+    <Compile Include="Moving\BiasedParticleMoverFactory.cs" />
+    <Compile Include="Moving\GravityPointMover.cs" />
+    <Compile Include="Moving\IParticleMover.cs" />
+    <Compile Include="Moving\MovementCostCalculator.cs" />
+    <Compile Include="Moving\BiasedParticleMover.cs" />
+    <Compile Include="Moving\IParticleMoverFactory.cs" />
+    <Compile Include="Moving\ParticleBouncer.cs" />
+    <Compile Include="Moving\ParticleMovementCost.cs" />
+    <Compile Include="Moving\SinusoidParticleMover.cs" />
+    <Compile Include="Moving\WaveParticleMover.cs" />
+    <Compile Include="Moving\WaveParticleMoverFactory.cs" />
+    <Compile Include="ParticleSimulator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ArticleSettingsFactory.cs" />
+    <Compile Include="Settings\PaperSettings\AllSettings.cs" />
+    <Compile Include="Settings\PaperSettings\Solution.cs" />
+    <Compile Include="Settings\PaperSettings\Validation.cs" />
+    <Compile Include="Settings\Presentation\KMeansExampleSettings.cs" />
+    <Compile Include="Settings\ExperimentSettings\Exp1SettingsFactory.cs" />
+    <Compile Include="Settings\ExperimentSettings\Exp4SettingsFactory.cs" />
+    <Compile Include="Settings\ExperimentSettings\Exp5SettingsFactory.cs" />
+    <Compile Include="Settings\HelperSettings\BasicSettingsFactory.cs" />
+    <Compile Include="Settings\HelperSettings\CostSettingsFactory.cs" />
+    <Compile Include="Settings\HelperSettings\ParticlePositionFactory.cs" />
+    <Compile Include="Settings\HelperSettings\SimulationTypeFactory.cs" />
+    <Compile Include="Settings\HelperSettings\VisualizationSettingsFactory.cs" />
+    <Compile Include="Settings\Presentation\KMeansSettings2.cs" />
+    <Compile Include="Settings\SettingsFactory.cs" />
+    <Compile Include="Settings\TimingSettings\KMeansTimingSettingsFactory.cs" />
+    <Compile Include="Settings\TimingSettings\MatrixTimingSettingsFactory.cs" />
+    <Compile Include="Settings\TimingSettings\TimingSettingsFactory.cs" />
+    <Compile Include="SimulatorRunner.cs" />
+    <Compile Include="Sorting\BoundedSectionPositionUpdater.cs" />
+    <Compile Include="Sorting\Cost\ParticleTransmissionCostCalculator.cs" />
+    <Compile Include="Sorting\Cost\SortingCostCalculator.cs" />
+    <Compile Include="Sorting\Cost\SortingCostParticleCalculation.cs" />
+    <Compile Include="Sorting\Cost\SortingCostReceiveParticle.cs" />
+    <Compile Include="Sorting\Cost\SortingCostSendParticle.cs" />
+    <Compile Include="Sorting\IParticleTransmitter.cs" />
+    <Compile Include="Sorting\ISorter.cs" />
+    <Compile Include="Sorting\NeighbourPositionGetter.cs" />
+    <Compile Include="Sorting\NeighbourTransferSection.cs" />
+    <Compile Include="Sorting\NeighbourTransmitter.cs" />
+    <Compile Include="Structuring\DDictionary.cs" />
+    <Compile Include="Structuring\ICore.cs" />
+    <Compile Include="Structuring\CoreGrid.cs" />
+    <Compile Include="Structuring\GridDistribution.cs" />
+    <Compile Include="Structuring\ICoreFactory.cs" />
+    <Compile Include="Structuring\IParticleTransmitterFactory.cs" />
+    <Compile Include="Structuring\ISorterFactory.cs" />
+    <Compile Include="Structuring\Particle.cs" />
+    <Compile Include="Structuring\Point3.cs" />
+    <Compile Include="Structuring\Sectioning\GriddedParticleSection.cs" />
+    <Compile Include="Structuring\Sectioning\IParticleSection.cs" />
+    <Compile Include="Structuring\Sectioning\ISection.cs" />
+    <Compile Include="Structuring\Sectioning\Section.cs" />
+    <Compile Include="Structuring\Sectioning\SectionGrid.cs" />
+    <Compile Include="Structuring\SimulationStructure.cs" />
+    <Compile Include="Tactics\AgreedTransmission\FtCore.cs" />
+    <Compile Include="Tactics\AgreedTransmission\FtCoreFactory.cs" />
+    <Compile Include="Tactics\AgreedTransmission\FtSection.cs" />
+    <Compile Include="Tactics\AgreedTransmission\FtSectionFactory.cs" />
+    <Compile Include="Tactics\AgreedTransmission\Sorting\BCSorter.cs" />
+    <Compile Include="Tactics\AgreedTransmission\Sorting\BCSorterFactory.cs" />
+    <Compile Include="Tactics\AgreedTransmission\Sorting\BridgeInterestGetter.cs" />
+    <Compile Include="Tactics\AgreedTransmission\Sorting\BridgeTransmissionPreparer.cs" />
+    <Compile Include="Tactics\AgreedTransmission\Sorting\SingleDimDistanceCalculator.cs" />
+    <Compile Include="Tactics\GNeighbour\GNeighbourCoreFactory.cs" />
+    <Compile Include="Tactics\GNeighbour\GNeighbourSectionFactory.cs" />
+    <Compile Include="Tactics\GNeighbour\GNeighbourSectionPositionUpdater.cs" />
+    <Compile Include="Tactics\GNeighbour\GNeighbourSorter.cs" />
+    <Compile Include="Tactics\GNeighbour\GNeighbourSorterFactory.cs" />
+    <Compile Include="Tactics\Helsim\HelsimCore.cs" />
+    <Compile Include="Tactics\Helsim\HelsimCoreFactory.cs" />
+    <Compile Include="Tactics\Helsim\HelsimSection.cs" />
+    <Compile Include="Tactics\Helsim\HelsimSectionFactory.cs" />
+    <Compile Include="Tactics\Helsim\HelsimSorter.cs" />
+    <Compile Include="Tactics\Helsim\HelsimSorterFactory.cs" />
+    <Compile Include="Tactics\Helsim\HelsimTransmitter.cs" />
+    <Compile Include="Tactics\KMeans\KMeansCore.cs" />
+    <Compile Include="Tactics\KMeans\KMeansCoreFactory.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSectioning\ISectionPositionUpdater.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSectioning\KMeansSection.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSectioning\KMeansSectionFactory.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSectioning\SectionPositionUpdater.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\DistanceTransmissionPreparer.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\ISectionTransmissionPreparer.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\KMeansSorter.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\SingleDimKMeansSorterFactory.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\MemLimKMeansSorterFactory.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\MemoryLimitDistTransPrep.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\NeighbourSizeGetter.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\OneSideSingleDimensionTransmissionPreparer.cs" />
+    <Compile Include="Tactics\KMeans\KMeansSorting\SingleDimDistanceTransmissionPreparer.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSortCore.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSortCoreFactory.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSorter.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSorterFactory.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSortParticleSection.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSortSectionFactory.cs" />
+    <Compile Include="Tactics\MatrixSort\MatrixSortTransmitter.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundaryCore.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundaryCoreFactory.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundaryParticleTransmitter.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundaryParticleSection.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundarySectionFactory.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundarySorter.cs" />
+    <Compile Include="Tactics\OuterList\StrictBoundarySorterFactory.cs" />
+    <Compile Include="Tactics\SideSort\SideSortCore.cs" />
+    <Compile Include="Tactics\SideSort\SideSortCoreFactory.cs" />
+    <Compile Include="Tactics\SideSort\SideSorterSectionFactory.cs" />
+    <Compile Include="Tactics\SideSort\SideSorterTransmitter.cs" />
+    <Compile Include="Tactics\SideSort\Sorter.cs" />
+    <Compile Include="Tactics\SideSort\SideSorterFactory.cs" />
+    <Compile Include="Tactics\SideSort\ParticleSection.cs" />
+    <Compile Include="Visualization\CostVisualization\CostPrinter.cs" />
+    <Compile Include="Visualization\FinalVisualization\FinalVisualizer.cs" />
+    <Compile Include="Visualization\FinalVisualization\IFinalVisualizer.cs" />
+    <Compile Include="Visualization\FinalVisualization\IFinalVisualizerFactory.cs" />
+    <Compile Include="Visualization\FinalVisualization\VideoMaker.cs" />
+    <Compile Include="Visualization\Initialization\IVisualizationBuilder.cs" />
+    <Compile Include="Visualization\Initialization\VisualizationBuilder.cs" />
+    <Compile Include="Visualization\Initialization\VisualizationParameters.cs" />
+    <Compile Include="Visualization\StepVisualization\IStepVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\IStepVisualizerFactory.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\CombinedPictureVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\IPictureCoordinateConverter.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\MergedPictureVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\PictureCoordinateConverter.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\PictureMerger.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\PicturePartMaker.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\SubVisualization\ISubVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\SubVisualization\NtSectionCenterVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\SubVisualization\CostVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\SubVisualization\ParticleVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\PictureCombining\SubVisualization\RedCrossVisualizer.cs" />
+    <Compile Include="Visualization\StepVisualization\StepVisualizer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x64\cublas64_55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\cudart64_55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\cufft64_55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\cvextern.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\cvextern_test.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\nppc64_55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\nppi64_55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\npps64_55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\OpenCL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_bioinspired290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_calib3d290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_contrib290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_core290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_cudev290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_features2d290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_ffmpeg290_64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_flann290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpu290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpuarithm290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpubgsegm290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpucodec290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpufeatures2d290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpufilters290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpuimgproc290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpulegacy290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpuoptflow290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpustereo290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_gpuwarping290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_highgui290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_imgproc290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_legacy290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_ml290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_nonfree290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_objdetect290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_ocl290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_optim290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_photo290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_softcascade290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_stitching290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_superres290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_video290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\opencv_videostab290.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

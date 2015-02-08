@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{2C0ED940-B246-423E-98F2-FB06F94AF824}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5D8B4B99-4895-4CFD-8451-C0978A5ED66D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Debug|x64.ActiveCfg = Debug|x64
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Debug|x64.Build.0 = Debug|x64
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Release|x64.ActiveCfg = Release|x64
+		{2C0ED940-B246-423E-98F2-FB06F94AF824}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
